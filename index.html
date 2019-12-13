@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cmjdev.github.io</title>
+  </head>
+  <body>
+    <main>
+      <span>cmjdev is interested in..</span>
+      <p></p>
+      <cite style="float: right;"></cite>
+    </main>
+  </body>
+</html>
+
+<script src="/updates.json"></script>
+<script>
+  var updates = [];
+  var interest = document.querySelector("p");
+  var date = document.querySelector("cite");
+  var current = null;
+
+  function next() {
+    if (current < updates.length - 1) {
+      return `<a href="#" onclick="showUpdate(++current)">&gt;</a>`;
+    } else return "&nbsp;";
+  }
+
+  function prev() {
+    if (current > 0) {
+      return `<a href="#" onclick="showUpdate(--current)">&lt;</a>`;
+    } else return "&nbsp;";
+  }
+
+  function showUpdate(i) {
+    // show previous if i > 0
+    // show next if i < updates.length - 1
+    interest.innerText = updates[i].interest;
+    date.innerHTML = `${prev()} ${updates[i].date} ${next()}`;
+  }
+
+  fetch("/updates.json")
+    .then(response => response.json())
+    .then(data => {
+      updates = data;
+      current = updates.length - 1;
+      showUpdate(current);
+    });
+</script>
+
+<style>
+  body {
+    font-family: monospace;
+    color: dimgrey;
+  }
+  main {
+    margin: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 300px;
+    max-width: 500px;
+  }
+  p {
+    text-align: center;
+    background-color: whitesmoke;
+    font-family: sans-serif;
+    padding: 1em;
+    margin: 0;
+  }
+  cite a {
+    text-decoration: none;
+    color: dimgrey;
+  }
+</style>
