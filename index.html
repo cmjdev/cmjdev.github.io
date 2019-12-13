@@ -7,9 +7,9 @@
   </head>
   <body>
     <main>
-      <span>cmjdev is interested in..</span>
-      <p></p>
-      <cite style="float: right;"></cite>
+      <span>interested in..</span>
+      <p id="interest"></p>
+      <cite id="date" style="float: right;"></cite>
     </main>
   </body>
 </html>
@@ -17,8 +17,8 @@
 <script src="/updates.json"></script>
 <script>
   var updates = [];
-  var interest = document.querySelector("p");
-  var date = document.querySelector("cite");
+  var interest = document.querySelector("#interest");
+  var date = document.querySelector("#date");
   var current = null;
 
   function next() {
