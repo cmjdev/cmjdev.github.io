@@ -23,13 +23,13 @@
 
   function next() {
     if (current < updates.length - 1) {
-      return `<a href="#" onclick="showUpdate(++current)">&gt;</a>`;
+      return `<a onclick="showUpdate(++current)">&gt;</a>`;
     } else return "&nbsp;";
   }
 
   function prev() {
     if (current > 0) {
-      return `<a href="#" onclick="showUpdate(--current)">&lt;</a>`;
+      return `<a onclick="showUpdate(--current)">&lt;</a>`;
     } else return "&nbsp;";
   }
 
@@ -69,7 +69,6 @@
     margin: 0;
   }
   cite a {
-    text-decoration: none;
-    color: dimgrey;
+    cursor: pointer;
   }
 </style>
