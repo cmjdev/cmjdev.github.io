@@ -36,7 +36,7 @@
   function showUpdate(i) {
     // show previous if i > 0
     // show next if i < updates.length - 1
-    interest.innerText = updates[i].interest;
+    interest.innerHTML = updates[i].interest;
     date.innerHTML = `${prev()} ${updates[i].date} ${next()}`;
   }
 
