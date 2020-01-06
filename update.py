@@ -7,10 +7,6 @@ try:
 except:
     update = None
 
-if not update:
-    update = input("What are you interested in? ")
-update = update.strip()
-
 timestamp = datetime.datetime.now()
 
 if update:
